@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marksheet javaScript</title>
+    <link rel="stylesheet" href="css/marksheet.css">
+    <script>
+    var total_row=1;
+    function sum(row_no)
+    {
+      var maths=Number(document.getElementById('maths_' + row_no).value);
+      var english=Number(document.getElementById('english_' + row_no).value);
+      var science=Number(document.getElementById('science_' + row_no).value);
+      var total=maths + english + science;
+      var percentage=(total/3);
+
+      document.getElementById('total_' + row_no).innerHTML=total;
+      document.getElementById('percentage_' + row_no).innerHTML=percentage;
+      summary()
+    }
+    function addrow1()
+    {
+      var table=document.getElementById("tbl");
+      var row=tab.insertRow(total_row);
+      row.id ="student_" + total_row;
+      var row_str=
+                  '<td><input type="text" name="rollno" value=""></td>'
+                  '<td><input type="text" name="sname" value=""></td>'
+                  '<td><input type="text" name="maths" id="maths_ '+ total_row +'" value="" onkeyup="sum('+ total_row +')"></td>' +
+                  '<td><input type="text" name="english" id="english_ '+ total_row +'" value="" onkeyup="sum('+ total_row +')"></td>'+
+                  '<td><input type="text" name="science" id="science_ '+ total_row +'" value="" onkeyup="sum('+ total_row +')"></td>'+
+                  '<td>< id="total '+ total_row +'"></td>'+
+                  '<td>< id="percentage '+ total_row +'"></td>'+
+                  '<td><input type="button" onclick="deleteRow(' + total_row + ')" value="Delete"></td>'
+      row.innerHTML = row_str;
+      document.getElementById('total').innerHTML=total_row;
+      total_row ++;
+    }
+
+
+
+    </script>
+  </head>
+
+  <body bgcolor=lightgray>
+    <center>
+     <table class=img>
+      <tr>
+          <td><img src="logo.png" height="100%" width="100%"></td>
+          <td><h1>Shree Ramkrishna Institute <br>  <h3><center> rg.no-123456,Athvalines,surat,gujarat,ph.no:02612554744</center></h3></h1></center></td>
+
+     </tr>
+     </table>
+
+     <br>
+     <br>
+
+     <table width="50%" height="8%" class="demo" >
+       <tr class="a">
+        <th> Teacher Name : Krunal Sir</th>
+        <th>Standard : 10th</th>
+      </tr>
+      <tr class="b" >
+        <th>Division : A</th>
+        <th>Exam Name : SSC</th>
+    </tr>
+  </table>
+  <br>
+  <br>
+
+  <table  class="demo1" border="1" width="70%" cellspacing="5" cellpading="3"  align="center" id="tbl">
+    <tr class="abc" >
+      <th><b>RollNo</b></td>
+      <th><b>Name</b></td>
+      <th><b>Maths</b></td>
+      <th><b>English</b></td>
+      <th><b>Science</b></td>
+      <th><b>Total</b></td>
+      <th><b>Persentage</b></td>
+      <th><b>Action</b></td>
+    </tr>
+
+
+</table>
+<br>
+<br>
+
+<button type="button" onclick="addrow1()">Add New Row</button>
+
+<table class="demo3" border="1" cellpading="0" cellspacing="0"  width="10%">
+<tr class="ab">
+    <h2>Exam Summery</h2>
+</tr>
+
+<tr class="a">
+  <th>Total Student</th>
+  <td id="TS" align="center"></td>
+</tr>
+<tr class="b">
+  <th>Highest</th>
+  <td id="Hig" align="center"></td>
+</tr>
+<tr class="c">
+  <th >Avarege</th>
+  <td id="Ava" align="center"></td>
+</tr>
+<tr class="d">
+  <th>Lowest</th>
+  <td id="Low" align="center"></td>
+</tr>
+</table>
+</body>
+</html>

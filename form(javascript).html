@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Java script</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script>
+      function myfan()
+      {
+        var a=document.form2.txtfname.value;
+        document.getElementById("demofname").innerHTML=a;
+        var b=document.form2.txtmname.value;
+        document.getElementById("demomname").innerHTML=b;
+        var c=document.form2.txtlname.value;
+        document.getElementById("demolname").innerHTML=c;
+        var d=document.form2.txtnub.value;
+        document.getElementById("demonub").innerHTML=d;
+        var e=document.form2.txttname.value;
+        document.getElementById("demotname").innerHTML=e;
+        var f=document.form2.txtclass.value;
+        document.getElementById("democlass").innerHTML=f;
+        var g=document.form2.txtsname.value;
+        document.getElementById("demosname").innerHTML=g;
+        var h=document.form2.txtmaths.value;
+        document.getElementById("demomaths").innerHTML=h;
+        var i=document.form2.txtsci.value;
+        document.getElementById("demosci").innerHTML=i;
+        var j=document.form2.txteng.value;
+        document.getElementById("demoeng").innerHTML=j;
+        var k=document.form2.txthindi.value;
+        document.getElementById("demohindi").innerHTML=k;
+
+        var txt1=eval(parseFloat(document.form2.txtmaths.value)+
+                      parseFloat(document.form2.txtsci.value)+
+                      parseFloat(document.form2.txteng.value)+
+                      parseFloat(document.form2.txthindi.value));
+        document.getElementById("demototal").innerHTML=txt1;
+
+        var txt2=eval(parseFloat(txt1*100)/400);
+        document.getElementById("demoper").innerHTML=txt2;
+        switch(true)
+        {
+        case(txt2>=80):
+        document.getElementById("demograde").innerHTML="A1";
+        break;
+        case(txt2>=70):
+        document.getElementById("demograde").innerHTML="A";
+        break;
+        case(txt2>=60):
+        document.getElementById("demograde").innerHTML="B";
+        break;
+        case(txt2>=50):
+        document.getElementById("demograde").innerHTML="C";
+        break;
+        case(txt2>=40):
+        document.getElementById("demograde").innerHTML="D";
+        break;
+        case(txt2<40):
+        document.getElementById("demograde").innerHTML="Fail";
+        break;
+        }
+        // var txt3=eval(parseFloat(txt2);
+         //  document.getElementById("demograde").innerHTML=txt3;
+         //  if(txt3>=80)
+         //    document.getElementById("demoper").innerHTML="Excellent";
+         //  else(txt3>=60)
+         //    document.getElementById("demoper").innerHTML="Very good";
+         //  else(txt3<=50)
+         //    document.getElementById("demoper").innerHTML="good";
+
+
+}
+      </script>
+  </head>
+  <body style="background:pink">
+     <form align="center" action="" method="get" name="form2">
+          <div class="jumbotron jumbotron-fluid" style="box-shadow: 0 8px 10px -10px black;">
+            <div class="container">
+                 <h1>Student Details</h1>
+            </div>
+          </div>
+
+          <div>
+            <h2><u>Personal Details</u></h2>
+          </div>
+         <br>
+  <table align="center">
+      <tr>
+        <td>&nbsp;&nbsp;<b>First Name :</b>
+        <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your FirstName" name="txtfname"><br>
+
+         <td>&nbsp;&nbsp;<b>Middle Name :</b></td>
+         <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your MiddleName" name="txtmname"><br></td>
+
+         <td>&nbsp;&nbsp;<b>Last Name :</b></td>
+         <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your LastName" name="txtlname"><br></td>
+      </tr>
+  </table>
+<br>
+<br>
+<table align="center">
+      <tr>
+
+         <td>&nbsp;&nbsp;<b>Mobile Number :</b></td>
+         <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your correct Number" name="txtnub" maxlength="10" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"><br></td>
+
+         <td>&nbsp;&nbsp;<b>Teacher name :</b></td>
+         <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your teacher name " name="txttname"><br></td>
+
+        <td>&nbsp;&nbsp;<b>Class :</b></td>
+         <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your class " name="txtclass"><br></td>
+
+        <td>&nbsp;&nbsp;<b>School name:</b></td>
+        <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your schoolname " name="txtsname"><br> </td>
+     </tr>
+</table>
+<br>
+<br>
+
+      <div>
+        <h2><u>Student Marks</u></h2>
+      </div>
+      <br>
+<table align="center">
+    <tr>
+      <td><b>Maths :</b></td>
+       <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your marks" name="txtmaths"><br></td>
+
+      <td><b>&nbsp;&nbsp;Science :</b></td>
+       <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your marks" name="txtsci"><br></td>
+
+      <td><b>&nbsp;&nbsp;English :</b></td>
+      <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your marks" name="txteng"><br></td>
+
+      <td><b>&nbsp;&nbsp;Hindi :</b></td>
+       <td>&nbsp;&nbsp;<input type="text" placeholder="Enter your marks" name="txthindi"><br> </td>
+    </tr>
+</table>
+<br>
+<br>
+<div>
+    <button style="font-size:30" type="button" onclick='myfan()'>Submit</button>
+    <button style="font-size:30" type="Reset">Reset</button>
+</div>
+<br>
+
+<div>
+  <h2 align="center"><u>Student Result</u></h2>
+  <br>
+  <table border="1" align="center" bo >
+
+      <tr>
+      <td width="135">First Name:</td><td width="200"><font face="arial" id="demofname"></font></td>
+      </tr>
+        <tr>
+      <td width="135">Middle Name:</td><td width="200"><font face="arial" id="demomname"></font></td>
+      </tr>
+        <tr>
+      <td width="135">Last Name:</td><td width="200"><font face="arial" id="demolname"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Mobile No:</td><td width="200"><font face="arial" id="demonub"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Teacher name:</td><td width="200"><font face="arial" id="demotname"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Class No:</td><td width="200"><font face="arial" id="democlass"></font></td>
+      </tr>
+      <tr>
+      <td width="135">School Name:</td><td width="200"><font face="arial" id="demosname"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Maths:</td><td width="200"><font face="arial" id="demomaths"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Science:</td><td width="200"><font face="arial" id="demosci"></font></td>
+      </tr>
+      <tr>
+      <td width="135">English:</td><td width="200"><font face="arial" id="demoeng"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Hindi:</td><td width="200"><font face="arial" id="demohindi"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Total:</td><td width="200"><font face="arial" id="demototal"></font></td>
+      </tr>
+      <tr>
+      <td width="135">percentage:</td><td width="200"><font face="arial" id="demoper"></font></td>
+      </tr>
+      <tr>
+      <td width="135">Grade:</td><td width="200"><font face="arial" id="demograde"></font></td>
+      </tr>
+      <!-- <tr>
+      <td width="135">Remark:</td><td width="200"><font face="arial" id="demore"></font></td>
+      </tr> -->
+
+
+  </table>
+</div>
+</form>
+</body>
+</html>

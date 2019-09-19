@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marksheet javaScript</title>
+    <link rel="stylesheet" href="css/marksheet.css">
+    <script src="jquery.min.js"></script>
+    <script>
+
+      function sumResult(no){
+        var  a = Number(document.getElementById("maths_" + no).value);
+        var b = Number( document.getElementById("eng_" + no).value);
+        var c = Number( document.getElementById("sci_" + no).value);
+        document.getElementById("total_" + no).innerHTML = a+b+c;
+        document.getElementById("percentage_" + no).innerHTML =((a+b+c)/3);
+        summary();
+        document.getElementById('total_' + no).innerHTML=total;
+        document.getElementById('percentage_' + no).innerHTML=Persentage;
+      }
+      var total_rows = 1;
+      function addRow(){
+        var table = document.getElementById('result');//table ma insert karva mate(table create karva mate)
+        var tr = table.insertRow();//table ma row insert karva mate
+        tr.setAttribute('class', 'abc2');//table ne je class apo hoy teni css mate "setAttribute"
+        tr.setAttribute('id', 'student_' + total_rows);//tr ne id api n teno class student apo......
+        tr.innerHTML = '<td><input type="text"></td>' +
+                       '<td><input type="text"></td>' +
+                       '<td><input type="text" id="maths_' + total_rows + '" onchange="sumResult(' + total_rows + ')"></td>' +
+                       '<td><input type="text" id="eng_' + total_rows + '" onchange="sumResult(' + total_rows + ')"></td>' +
+                       '<td><input type="text" id="sci_' + total_rows + '" onchange="sumResult(' + total_rows + ')"></td>' +
+                       '<td id="total_' + total_rows + '" class="totalclass">  </td>' +
+                       '<td id="percentage_' + total_rows + '"></td>' +
+                       '<td><button type="button" onclick=deleteRow(' + total_rows + ')>Delete</button></td>';
+        total_rows += 1;
+        summary();
+      }
+      function summary(){
+      	var max = 0;
+    		var min = 600;
+    		var avg = 0;
+        var total = 0;
+
+        var total_student = document.getElementsByClassName('totalclass');
+        var total_student_record = total_student.length;
+        if(total_student_record == 0)
+          min = 0;
+
+        for (var i = 0; i < total_student_record; i++){
+          sum = Number(total_student[i].innerHTML);
+          console.log(sum);
+  	  		if (sum > max)
+  	     		max = sum;
+  	   		else if (sum < min)
+  	    		min = sum;
+  		    total = total + sum;
+        }
+
+        if(total_student_record > 0)
+          avg = total/total_student_record;
+
+        document.getElementById("TS").innerHTML = total_student_record;
+      	document.getElementById("highest").innerHTML = max;
+        document.getElementById("lowest").innerHTML = min;
+        document.getElementById("avarege").innerHTML = avg;
+      }
+
+      function deleteRow(no){
+        var table = document.getElementById('result');
+        var del= document.getElementById('student_' + no);
+        table.deleteRow(del.rowIndex);
+        summary();
+      }
+    </script>
+  </head>
+  <body bgcolor=lightgray>
+    <center>
+      <table class=img>
+        <tr>
+          <td><img src="logo.png" height="100%" width="100%"></td>
+          <td>
+            <h1> Shree Ramkrishna Institute </h1>
+            <h3><center> rg.no-123456,Athvalines,surat,gujarat,ph.no:02612554744</center></h3>
+          </td>
+        </tr>
+      </table>
+
+      <br> <br>
+
+      <table width="50%" height="8%" class="demo" >
+        <tr class="a">
+          <th> Teacher Name : Krunal Sir</th>
+          <th>Standard : 10th</th>
+        </tr>
+        <tr class="b" >
+          <th>Division : A</th>
+          <th>Exam Name : SSC</th>
+        </tr>
+      </table>
+
+      <br> <br>
+
+      <table  class="demo1" border="1" width="70%" cellspacing="5" cellpading="3"  align="center" id="result">
+        <tr class="abc" >
+          <th><b>RollNo</b></th>
+          <th><b>Name</b></th>
+          <th><b>Maths</b></th>
+          <th><b>English</b></th>
+          <th><b>Science</b></th>
+          <th><b>Total</b></th>
+          <th><b>Persentage</b></th>
+          <th><b>Action</b></th>
+        </tr>
+      </table>
+
+      <button type="button" onclick="addRow()">Add New Row</button>
+
+      <table class="demo3" border="1" cellpading="0" cellspacing="0"  width="30%">
+        <tr class="ab">
+          <h2>Exam Summery</h2>
+        </tr>
+        <tr class="a">
+          <th>Total Student</th>
+          <td id="TS" align="center" width="600"></td>
+        </tr>
+        <tr class="b">
+          <th>Highest</th>
+          <td id="highest" align="center"></td>
+        </tr>
+        <tr class="c">
+          <th >Avarege</th>
+          <td id="avarege" align="center"></td>
+        </tr>
+        <tr class="d">
+          <th>Lowest</th>
+          <td id="lowest" align="center"></td>
+        </tr>
+      </table>
+    </center>
+  </body>
+</html>
